@@ -1,0 +1,15 @@
+return {
+  {
+    "folke/snacks.nvim",
+    opts = function(_, opts)
+      opts.explorer = { enabled = false }
+      return opts
+    end,
+    keys = {
+      { "<leader>fe", false },
+      { "<leader>fE", false },
+      { "<leader>E", false },
+      { "<leader>e", false },
+    },
+  },
+}

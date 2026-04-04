@@ -131,4 +131,11 @@
         eval "$(zoxide init bash)"
         '';
   };
+
+  programs.bash.bashrcExtra = ''
+  rr(){
+      local name="''${1%.rs}"
+      rustc "$1" && ./"$name"
+    }
+  '';
 }

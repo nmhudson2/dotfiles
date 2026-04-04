@@ -1,0 +1,18 @@
+layout {
+  pane split_direction="vertical" {
+    pane {
+      name "NVIM"
+    }
+    pane split_direction="horizontal" {
+      pane size="10%" {
+        name "pg-compose"
+      }
+      pane size="30%" {
+        name "Dev Logs"
+      }
+      pane {
+        name "Test Logs"
+      }
+    }
+  }
+}

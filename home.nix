@@ -33,6 +33,7 @@
     clippy
     bun
     zellij
+    starship
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -83,7 +84,10 @@
     source = ./config/nvim;
     recursive = true;
   };
- 
+  programs.starship = {
+      enable = true;
+      settings = builtins.fromTOML (builtins.readFile ./config/starship/starship.toml);
+    };
   programs.bash = {
     enable = true;
     enableCompletion = true;
@@ -129,8 +133,9 @@
             fi
         fi
 
-        eval "$(zoxide init bash)"
         eval "$(zellij setup --generate-auto-start bash)"
+        eval "$(starship init bash)"
+        eval "$(zoxide init bash)"
 
         '';
   };

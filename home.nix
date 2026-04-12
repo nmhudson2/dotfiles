@@ -32,6 +32,7 @@
     rustfmt
     clippy
     bun
+    zellij
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -129,6 +130,8 @@
         fi
 
         eval "$(zoxide init bash)"
+        eval "$(zellij setup --generate-auto-start bash)"
+
         '';
   };
 

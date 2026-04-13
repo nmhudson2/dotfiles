@@ -1,51 +1,45 @@
 format = """
-[$directory](bold gruvbox_blue) [$git_branch$git_status]($style)$character\
+[|](bg:black fg:bold yellow)$username\
+${custom.at_path}\
+$directory\
+$elixir\
+$rust\
+$git_branch\
+$shell\
+$gradle
+[└─>](bg:black fg:bold yellow)$character
 """
 
+[username]
+style_user = 'bg:black fg:yellow'
+format = "[$user]($style)"
+show_always = true
+
 [directory]
-style = "bold gruvbox_blue"
-format = "[$read_only]($read_only_style)[$path]($style) "
-read_only = " "
-read_only_style = "bold gruvbox_red"
-truncation_length = 3
-truncate_to_repo = true
-home_symbol = "~"
+style = 'bg:black fg:purple'
+format = '[$path]($style)'
+
+[gradle]
+disabled = false
+format = ' '
+
+[elixir]
+style = 'bg:black fg:bold red'
+format = '[ ~ via ($version \(OTP $otp_version\) )]($style)'
+
+[shell]
+bash_indicator = '\[BASH\]'
+style = 'bg:black fg:white'
+format = '[ with $indicator]($style) '
+disabled = false
 
 [git_branch]
-symbol = "→ "
-format = "[$symbol$branch]($style) "
-style = "bold gruvbox_purple"
+symbol = '⎇'
+style = 'bg:black fg:green bold'
+format = '[on $symbol $branch]($style)'
 
-[git_status]
-style = "bold gruvbox_red"
-format = "([$all_status$ahead_behind]($style))"
-conflicted = "="
-ahead = "⇡${count}"
-behind = "⇣${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-untracked = "?${count}"
-stashed = "$${count}"
-modified = "!${count}"
-staged = "+${count}"
-renamed = "»${count}"
-deleted = "-${count}"
+[custom.at_path]
+when = true
+style = 'bg:black'
+format = '[@]($style)'
 
-[character]
-success_symbol = "[❯](bold gruvbox_green)"
-error_symbol = "[❯](bold gruvbox_red)"
-
-[palettes.gruvbox]
-gruvbox_fg = "#ebdbb2"
-gruvbox_bg0 = "#282828"
-gruvbox_bg1 = "#3c3836"
-gruvbox_bg2 = "#504945"
-gruvbox_gray = "#928374"
-gruvbox_red = "#fb4934"
-gruvbox_green = "#b8bb26"
-gruvbox_yellow = "#fabd2f"
-gruvbox_orange = "#fe8019"
-gruvbox_blue = "#83a598"
-gruvbox_purple = "#d3869b"
-gruvbox_aqua = "#8ec07c"
-
-palette = "gruvbox"

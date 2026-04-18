@@ -1,5 +1,5 @@
 format = """
-[|](bg:black fg:bold yellow)$username\
+[|](bg:black fg:yellow)$username\
 ${custom.at_path}\
 $directory\
 $elixir\
@@ -7,7 +7,7 @@ $rust\
 $git_branch\
 $shell\
 $gradle
-[└─>](bg:black fg:bold yellow)$character
+[└─> ](bg:black fg:bold yellow)
 """
 
 [username]
@@ -17,7 +17,7 @@ show_always = true
 
 [directory]
 style = 'bg:black fg:purple'
-format = '[$path]($style)'
+format = '[$path ]($style)'
 
 [gradle]
 disabled = false
@@ -37,6 +37,7 @@ disabled = false
 symbol = '⎇'
 style = 'bg:black fg:green bold'
 format = '[on $symbol $branch]($style)'
+
 
 [custom.at_path]
 when = true

@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let 
+  beam = pkgs.beam.packages.erlang_28;
+in 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -14,18 +17,19 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "25.11"; # Please read the comment before changing.
-
+  # Custom Elixir and Erlang versions 
+  
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
+  home.packages = with pkgs;[ 
     ripgrep
     zoxide
     fd
     fastfetch
     fzf
     tmux
-    erlang
-    elixir
+    beam.erlang
+    beam.elixir_1_19
     rustc
     cargo
     rust-analyzer
